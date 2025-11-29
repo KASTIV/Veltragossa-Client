@@ -418,6 +418,69 @@
   100% { transform: translateX(-50%); }
 }
 
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.slide-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.slide-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scale-in {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scale-in.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.stagger-animation > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.stagger-animation.visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stagger-animation.visible > *:nth-child(1) { transition-delay: 0.1s; }
+.stagger-animation.visible > *:nth-child(2) { transition-delay: 0.2s; }
+.stagger-animation.visible > *:nth-child(3) { transition-delay: 0.3s; }
+.stagger-animation.visible > *:nth-child(4) { transition-delay: 0.4s; }
+.stagger-animation.visible > *:nth-child(5) { transition-delay: 0.5s; }
+.stagger-animation.visible > *:nth-child(6) { transition-delay: 0.6s; }
+
   </style>
 </head>
 <body>
@@ -568,8 +631,8 @@
 
   
   <section id="features" class="section">
-    <h2>Feature highlights</h2>
-    <div class="grid">
+    <h2 class="fade-in">Feature highlights</h2>
+    <div class="grid stagger-animation">
       <div class="card">
         <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
   <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
@@ -623,10 +686,10 @@
 
   
   <section id="showcase" class="section">
-    <h2>Wanna take a look?</h2>
+    <h2 class="fade-in">Wanna take a look?</h2>
     <div class="showcase">
-      <img src="https://i.imgur.com/m0Y8yJ9.jpeg" alt="Veltragossa Click GUI" />
-      <ul class="list">
+      <img src="https://i.imgur.com/m0Y8yJ9.jpeg" alt="Veltragossa Click GUI" class="slide-in-left" />
+      <ul class="list stagger-animation">
         <li><span class="tick">✔</span> English language, simple onboarding</li>
         <li><span class="tick">✔</span> Bypass tuned for modern ACs</li>
         <li><span class="tick">✔</span> Clean GUI with smart category layout</li>
@@ -638,8 +701,8 @@
 
   
   <section id="opinions" class="section">
-    <h2>User opinions</h2>
-    <div class="opinions">
+    <h2 class="fade-in">User opinions</h2>
+    <div class="opinions stagger-animation">
       <div class="op"><strong>CartonOnCheats:</strong> legit przed pobraniem byłem napierdalany skuterem ojca a po jestem napierdalany pasem 😭✔️🌛</div>
       <div class="op"><strong>Larped:</strong> legit cheat nie jest zly jak na darmowy cheat posiada duzo opcji bypassow i  dobrego wygladu jest napewno bardzo dobry posiada w ciul duzo efektow i mega budowe plikow</div>
       <div class="op"><strong>Aciomek:</strong> Zajebisty klient wyrwałem na niego dziewczynę ❤️</div>
@@ -650,8 +713,8 @@
   </section>
 
 <section id="tutorial" class="section">
-  <h2>Installation Guide</h2>
-  <div class="steps-container" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:40px;">
+  <h2 class="fade-in">Installation Guide</h2>
+  <div class="steps-container stagger-animation" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:40px;">
     
     <div class="step" style="background:rgba(0,50,0,0.7);padding:24px;border-radius:12px;box-shadow:0 0 12px #003300;text-align:center;">
       <div class="step-number">1</div>
@@ -660,15 +723,15 @@
     </div>
     <div class="lang-switcher">
   <button data-lang="pl" title="Polski">
-    <!-- flaga PL -->
+    
     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 32 32"><path d="M1,24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V15H1v9Z" fill="#cb2e40"></path><path d="M27,4H5c-2.209,0-4,1.791-4,4v8H31V8c0-2.209-1.791-4-4-4Z" fill="#fff"></path></svg>
   </button>
   <button data-lang="en" title="English">
-    <!-- flaga EN -->
+    
     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 32 32"><rect x="1" y="4" width="30" height="24" rx="4" ry="4" fill="#fff"></rect><path fill="#be2a2a" d="M31 14L18 14 18 4 14 4 14 14 1 14 1 18 14 18 14 28 18 28 18 18 31 18 31 14z"></path></svg>
   </button>
   <button data-lang="ru" title="Русский">
-    <!-- flaga RU -->
+    
     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 32 32"><path fill="#1435a1" d="M1 11H31V21H1z"></path><path d="M5,4H27c2.208,0,4,1.792,4,4v4H1v-4c0-2.208,1.792-4,4-4Z" fill="#fff"></path><path d="M5,20H27c2.208,0,4,1.792,4,4v4H1v-4c0-2.208,1.792-4,4-4Z" fill="#c53a28"></path></svg>
   </button>
 </div>
@@ -761,8 +824,8 @@
 </style>
  
 <section id="download" class="section">
-  <h2>Download</h2>
-  <div class="download-block">
+  <h2 class="fade-in">Download</h2>
+  <div class="download-block stagger-animation">
     <div class="dl-card">
       <h3 style="margin:0 0 8px">Latest build</h3>
       <div class="kv">
@@ -1155,7 +1218,7 @@ document.querySelectorAll(".lang-switcher button").forEach(btn => {
 </script>
 
   
-  <footer>
+  <footer class="fade-in">
     <div class="footer-inner">
       <div class="foot-col">
         <div class="brand">
@@ -1208,6 +1271,30 @@ document.querySelectorAll(".lang-switcher button").forEach(btn => {
     })();
   </script>
 <script>
+
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in, .stagger-animation');
+  animatedElements.forEach(el => {
+    observer.observe(el);
+  });
+});
+</script>
+
+<script>
 const clickGui = document.querySelector('.showcase img');
 
 clickGui.addEventListener('mousemove', e => {
@@ -1229,6 +1316,5 @@ clickGui.addEventListener('mouseleave', () => {
 
 </body>
 </html>
-
 
 
