@@ -938,18 +938,10 @@ document.querySelectorAll(".lang-switcher button").forEach(btn => {
     document.getElementById("version-display").textContent = "Unavailable";
   }
 
-  try {
-    
-    const resApi = await fetch(apiUrl);
-    const apiText = await resApi.text();
-    const apiLine = apiText.split(/\r?\n/).map(l=>l.trim()).filter(Boolean)[0];
-    const btn = document.getElementById("download-btn");
-    btn.href = apiLine;
-    btn.setAttribute("download","");
-  } catch(e) {
-    const btn = document.getElementById("download-btn");
-    btn.textContent = "Download unavailable";
-    btn.removeAttribute("href");
+  const btn = document.getElementById("download-btn");
+  if (btn) {
+    btn.href = "https://github.com/Mevinggs/Veltragossa-client/releases/download/Veltragossa0.1/velkrakossag.jar";
+    btn.setAttribute("download", "");
   }
 })();
 </script>
