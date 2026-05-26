@@ -295,7 +295,7 @@ footer { margin-top: 80px; background: rgba(5, 5, 8, 0.7); backdrop-filter: blur
         <div class="name">Veltragossa Client</div>
       </div>
       <nav class="links">
-        <a href="#features">Features</a>
+        
         <a href="#bypasses">Bypasses</a>
         <a href="#showcase">Showcase</a>
         <a href="#opinions">Opinions</a>
@@ -429,12 +429,7 @@ footer { margin-top: 80px; background: rgba(5, 5, 8, 0.7); backdrop-filter: blur
   </section>
 
   
-  <section id="features" class="section">
-    <h2 class="fade-in">Feature highlights</h2>
-    <div class="grid stagger-animation">
-      
-    </div>
-  </section>
+  
 
   
   <section id="showcase" class="section">
@@ -460,7 +455,7 @@ footer { margin-top: 80px; background: rgba(5, 5, 8, 0.7); backdrop-filter: blur
       <div class="op"><strong>Aciomek:</strong> Zajebisty klient wyrwałem na niego dziewczynę ❤️</div>
       <div class="op"><strong>TomekSigma:</strong> legitka przed pobieraniem byłem bity w klasie teraz to ja biję klasę</div>
       <div class="op"><strong>Franiu123:</strong> Polecam client polar baj pass jest wgrany revex clearmc hyperium to najgorsze serwery ac veltagorasa topka</div>
-      <div class="op"><strong>Bix0u:</strong> Szczerze za darmo to w huj dobre ❤️</div>
+      <div class="op"><strong>MetalowyKlapek27.:</strong> Legit veltragossa premium full disabler na anarchię ❤️</div>
     </div>
   </section>
 
@@ -819,28 +814,14 @@ function setLanguage(lang) {
   document.querySelector(".hero-actions .btn.ghost").textContent = t.discord;
   
   
-  document.querySelector("#features h2").textContent = t.features;
+  
   document.querySelector("#showcase h2").textContent = t.showcase;
   document.querySelector("#opinions h2").textContent = t.opinions;
   document.querySelector("#tutorial h2").textContent = t.tutorial;
   document.querySelector("#download h2").textContent = t.download;
   
   
-  const featureCards = document.querySelectorAll("#features .card");
-  const features = [
-    { title: t.cleanVisuals, desc: t.cleanVisualsDesc },
-    { title: t.bypasses, desc: t.bypassesDesc },
-    { title: t.frequentUpdates, desc: t.frequentUpdatesDesc },
-    { title: t.highlyCustomizable, desc: t.highlyCustomizableDesc },
-    { title: t.crossPlatform, desc: t.crossPlatformDesc }
-  ];
   
-  featureCards.forEach((card, index) => {
-    if (features[index]) {
-      card.querySelector("h3").textContent = features[index].title;
-      card.querySelector("p").textContent = features[index].desc;
-    }
-  });
   
   
   const showcaseItems = document.querySelectorAll("#showcase .list li");
