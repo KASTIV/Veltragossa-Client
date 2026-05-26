@@ -1,8 +1,7 @@
-## ⚠️ Licensing Notice: GNU Affero General Public License  v3.0
+## GNU Affero General Public License  v3.0
 
 This software is free software: you can redistribute it and/or modify it under the terms of the **GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.**
 
-### 🚨 Strict Compliance Required
 
 **Please read the license carefully.** This is a strong copyleft license that includes crucial provisions related to network usage (SaaS):
 
