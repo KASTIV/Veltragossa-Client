@@ -7,483 +7,282 @@
   <meta name="description" content="Veltragossa Client — advanced cheats, frequent updates, clean visuals, bypasses for top anticheats." />
   <link rel="icon" href="https://i.imgur.com/O37AJsI.png" />
   <style>
-    :root {
-      --bg-0: #000000;
-      --bg-1: #032b03;
-      --bg-2: #0a4a0a;
-      --green: #23ff6b;
-      --green-soft: #9cff9c;
-      --green-deep: #00b34a;
-      --text: #eaffe6;
-      --text-dim: #cfe9c8;
-      --card: rgba(5, 40, 5, 0.7);
-      --border: rgba(40, 120, 40, 0.5);
-      --shadow-green: 0 0 24px rgba(35, 255, 107, 0.25);
-    }
-    * { box-sizing: border-box; }
-    html, body {
-      margin: 0;
-      padding: 0;
-      color: var(--text);
-      font-family: Inter, Segoe UI, system-ui, Roboto, Arial, sans-serif;
-      background:
-        radial-gradient(1000px 500px at 10% 20%, rgba(35,255,107,0.12) 0%, transparent 60%),
-        radial-gradient(900px 500px at 80% 10%, rgba(35,255,107,0.12) 0%, transparent 60%),
-        linear-gradient(to right, var(--bg-0), var(--bg-1) 30%, var(--bg-2));
-      background-attachment: fixed;
-    }
-    a { color: var(--green); text-decoration: none; }
-    a:hover { color: white; }
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap');
 
-    
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(8px);
-      background: linear-gradient(to right, rgba(0,0,0,0.85), rgba(10,74,10,0.85));
-      border-bottom: 1px solid var(--border);
-    }
-    .nav {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 12px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .brand img {
-  height: 44px;
-  width: 44px;
-  border-radius: 10px;
-  box-shadow: var(--shadow-green);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-.brand img:hover {
-  transform: scale(1.15) rotate(2deg);
-  box-shadow: 0 0 32px rgba(35,255,107,0.6);
+:root {
+  --bg-color: #030305;
+  --glass-bg: rgba(15, 15, 20, 0.45);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-hover: rgba(16, 232, 107, 0.4);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  
+  --green: #10e86b;
+  --green-glow: rgba(16, 232, 107, 0.5);
+  --green-soft: #a8ffcc;
+  --text: #f0f0f0;
+  --text-dim: #9ba1a6;
 }
 
-    .brand .name {
-      font-weight: 800;
-      letter-spacing: 0.2px;
-    }
-.links a {
-  position: relative;
-  transition: color 0.25s ease, transform 0.25s ease;
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--bg-color);
+  overflow-x: hidden;
 }
 
-.links a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 100%;
-  height: 2px;
-  background: var(--green);
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.25s ease;
-}
 
-.links a:hover {
-  color: white;
-  transform: translateY(-2px);
-}
-
-.links a:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
-}
-
-    .links {
-      display: flex;
-      gap: 22px;
-    }
-    .links a {
-      color: var(--green-soft);
-      font-weight: 600;
-    }
-    .links a:hover { color: white; }
-
-    
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 18px;
-      border-radius: 999px;
-      font-weight: 700;
-      border: 1px solid var(--border);
-      background: linear-gradient(90deg, rgba(35,255,107,0.15), rgba(0,0,0,0.25));
-      color: var(--text);
-      box-shadow: var(--shadow-green);
-      transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
-    }
-    .btn:hover { transform: translateY(-1px); box-shadow: 0 0 28px rgba(35,255,107,0.4); }
-    .btn.primary {
-      background: linear-gradient(90deg, var(--green-deep), var(--green));
-      color: #041b08;
-      border: none;
-    }
-    .btn.ghost { background: transparent; }
-
-    
-    .hero {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 64px 20px 40px;
-      text-align: center;
-    }
-    .badge {
-  display: inline-flex;
-  gap: 10px;
-  padding: 6px 12px;
-  border: 2px solid transparent;
-  border-radius: 20px;
-  color: var(--text-dim);
-  background: rgba(0,0,0,0.35);
-  backdrop-filter: blur(8px);
-  animation: borderPulse 3s linear infinite;
-}
-
-@keyframes borderPulse {
-  0%   { border-color: #000; }
-  50%  { border-color: #00ff00; }
-  100% { border-color: #000; }
-}
-
-    .title {
-      margin: 18px auto 12px;
-      font-size: clamp(36px, 5.2vw, 68px);
-      font-weight: 900;
-      letter-spacing: -0.02em;
-      background: linear-gradient(90deg, var(--green), #b6ffcd);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .subtitle {
-      margin: 8px auto 24px;
-      max-width: 760px;
-      color: var(--text-dim);
-      font-size: clamp(16px, 2.3vw, 20px);
-      line-height: 1.55;
-    }
-    .hero-actions {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 8px;
-    }
-
-   
-    .trusted {
-      margin-top: 28px;
-      padding: 18px 0;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      overflow: hidden;
-      position: relative;
-    }
-.trusted {
+.liquid-bg {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: -1;
   overflow: hidden;
-  position: relative;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding: 20px 0;
+  pointer-events: none;
 }
-
-.trusted-track {
-  display: flex;
-  gap: 40px;
-  width: max-content;
-  animation: scrollLoop 10s linear infinite;
-}
-
-.trusted-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 700;
-  color: var(--green-soft);
-  font-size: 20px;
-}
-
-.bypass-logo {
-  width: 24px;
-  height: 24px;
-  border-radius: 4px;
-  object-fit: contain;
-  transition: transform 0.2s ease, filter 0.2s ease;
-}
-
-.bypass-logo:hover {
-  transform: scale(1.2);
-  filter: brightness(1.3) drop-shadow(0 0 8px rgba(35,255,107,0.6));
-}
-
-.dot {
-  width: 8px;
-  height: 8px;
-  background: var(--green);
+.blob {
+  position: absolute;
   border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.6;
+  animation: float 20s infinite alternate ease-in-out;
+}
+.blob1 { width: 45vw; height: 45vw; background: rgba(16, 232, 107, 0.25); top: -10%; left: -10%; animation-duration: 25s; }
+.blob2 { width: 40vw; height: 40vw; background: rgba(0, 80, 200, 0.15); bottom: -10%; right: -5%; animation-duration: 22s; animation-delay: -5s; }
+.blob3 { width: 35vw; height: 35vw; background: rgba(16, 232, 107, 0.15); top: 40%; left: 60%; animation-duration: 28s; animation-delay: -10s; }
+
+@keyframes float {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(8vw, 5vh) scale(1.05); }
+  100% { transform: translate(-4vw, 12vh) scale(0.95); }
+}
+
+a { color: var(--green); text-decoration: none; transition: color 0.3s ease; }
+a:hover { color: #fff; }
+
+
+header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(5, 5, 8, 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border);
+}
+.nav { max-width: 1200px; margin: 0 auto; padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; }
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand img { height: 44px; width: 44px; border-radius: 12px; box-shadow: 0 0 20px rgba(16,232,107,0.3); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.brand img:hover { transform: scale(1.15) rotate(5deg); box-shadow: 0 0 30px var(--green-glow); }
+.brand .name { font-weight: 800; letter-spacing: 0.5px; }
+
+.links { display: flex; gap: 24px; }
+.links a { color: var(--text-dim); font-weight: 600; position: relative; }
+.links a::after { content: ""; position: absolute; left: 0; bottom: -4px; width: 100%; height: 2px; background: var(--green); transform: scaleX(0); transform-origin: right; transition: transform 0.3s ease; }
+.links a:hover { color: #fff; }
+.links a:hover::after { transform: scaleX(1); transform-origin: left; }
+
+
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 12px 22px; border-radius: 99px;
+  font-weight: 700; font-size: 15px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  color: var(--text);
+  box-shadow: var(--glass-shadow);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--green);
+  box-shadow: 0 0 25px var(--green-glow);
+}
+.btn.primary {
+  background: linear-gradient(135deg, #10e86b 0%, #00b34a 100%);
+  color: #000;
+  border: none;
+  box-shadow: 0 0 20px rgba(16,232,107,0.4);
+}
+.btn.primary:hover {
+  box-shadow: 0 0 35px rgba(16,232,107,0.6);
+  transform: translateY(-2px) scale(1.02);
+}
+.btn.ghost { background: transparent; border: 1px solid transparent; box-shadow: none; }
+.btn.ghost:hover { background: rgba(255,255,255,0.05); }
+
+
+.hero { max-width: 1200px; margin: 0 auto; padding: 80px 20px 60px; text-align: center; }
+.badge {
+  display: inline-flex; gap: 10px; padding: 8px 16px;
+  border-radius: 99px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  color: var(--text-dim);
+  font-size: 14px;
+  box-shadow: 0 0 15px rgba(16,232,107,0.1);
+  animation: pulse-border 3s infinite;
+}
+@keyframes pulse-border {
+  0% { border-color: rgba(255,255,255,0.05); }
+  50% { border-color: rgba(16,232,107,0.4); }
+  100% { border-color: rgba(255,255,255,0.05); }
+}
+
+.title {
+  margin: 24px auto 16px;
+  font-size: clamp(40px, 6vw, 76px);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  background: linear-gradient(180deg, #ffffff 0%, #a8ffcc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 40px rgba(16,232,107,0.2);
+}
+.subtitle { margin: 0 auto 32px; max-width: 760px; color: var(--text-dim); font-size: clamp(16px, 2.5vw, 22px); line-height: 1.6; }
+.hero-actions { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+
+.trusted { margin-top: 60px; padding: 24px 0; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); overflow: hidden; background: rgba(0,0,0,0.2); backdrop-filter: blur(8px); }
+.trusted-track { display: flex; gap: 40px; width: max-content; animation: scrollLoop 15s linear infinite; }
+@keyframes scrollLoop { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.trusted-item { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--green-soft); font-size: 20px; }
+.bypass-logo { width: 28px; height: 28px; border-radius: 6px; object-fit: contain; transition: transform 0.3s, filter 0.3s; }
+.bypass-logo:hover { transform: scale(1.3) rotate(5deg); filter: drop-shadow(0 0 10px var(--green-glow)); }
+.dot { width: 8px; height: 8px; background: var(--green); border-radius: 50%; box-shadow: 0 0 10px var(--green); }
+
+
+.section { max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
+.section h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 900; letter-spacing: -0.02em; color: #fff; margin-bottom: 30px; }
+.section h2 span { color: var(--green); }
+
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.card, .op, .dl-card, .step, .list li {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 20px;
+  padding: 24px;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+.card::before, .op::before, .dl-card::before, .step::before {
+  content: "";
+  position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.7s ease;
+}
+.card:hover::before, .op:hover::before, .dl-card:hover::before, .step:hover::before { left: 150%; }
+
+.card:hover, .op:hover, .dl-card:hover, .step:hover, .list li:hover {
+  transform: translateY(-8px);
+  border-color: var(--glass-border-hover);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5), 0 0 20px rgba(16,232,107,0.15);
+}
+
+.card h3 { margin: 16px 0 8px; font-size: 20px; color: #fff; }
+.card p { color: var(--text-dim); font-size: 15px; line-height: 1.6; }
+.feature-icon {
+  width: 50px; height: 50px; border-radius: 14px;
+  background: rgba(16,232,107,0.1);
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(16,232,107,0.3);
+  color: var(--green);
+  box-shadow: inset 0 0 15px rgba(16,232,107,0.1);
 }
 
 
+.showcase { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; }
+.showcase img { width: 100%; border-radius: 20px; border: 1px solid var(--glass-border); box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 30px rgba(16,232,107,0.2); transition: transform 0.5s ease; }
+.showcase img:hover { transform: scale(1.03) translateY(-10px); }
+
+.list { display: grid; gap: 12px; list-style: none; padding: 0; margin: 0; }
+.list li { padding: 16px 20px; display: flex; align-items: center; gap: 14px; color: #e0e0e0; font-weight: 500; font-size: 16px; border-radius: 16px; }
+.tick { color: var(--green); font-weight: 900; font-size: 18px; transition: transform 0.3s; }
+.list li:hover .tick { transform: rotate(15deg) scale(1.3); }
 
 
-    
-    .section {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 60px 20px;
-    }
-    .section h2 {
-      font-size: clamp(26px, 3.6vw, 36px);
-      font-weight: 900;
-      letter-spacing: -0.01em;
-      color: var(--green);
-      margin-bottom: 16px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 18px;
-      box-shadow: var(--shadow-green);
-      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-    }
-    .card:hover { transform: translateY(-2px); box-shadow: 0 0 32px rgba(35,255,107,0.35); border-color: rgba(35,255,107,0.7); }
-    .card h3 {
-      margin: 4px 0 8px;
-      font-size: 18px;
-      color: var(--green-soft);
-    }
-    .card p { color: var(--text-dim); font-size: 14px; line-height: 1.6; }
-    .feature-icon {
-      width: 44px; height: 44px; border-radius: 10px;
-      background: linear-gradient(90deg, rgba(35,255,107,0.25), rgba(0,0,0,0.15));
-      display: flex; align-items: center; justify-content: center;
-      border: 1px solid var(--border);
-    }
+.opinions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.op { padding: 20px; font-size: 15px; line-height: 1.6; color: #d0d0d0; }
+.op strong { display: block; margin-bottom: 8px; color: var(--green-soft); font-size: 16px; }
 
-    
-    .showcase {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 24px;
-      align-items: center;
-    }
-.showcase img {
-  transition: transform 0.3s ease;
+
+.steps-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 40px; }
+.step { text-align: center; padding: 30px 20px; }
+.step-number {
+  width: 54px; height: 54px; border-radius: 50%;
+  background: linear-gradient(135deg, #10e86b 0%, #00b34a 100%);
+  color: #000; display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 22px; margin: 0 auto 20px;
+  box-shadow: 0 0 20px rgba(16,232,107,0.4);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+.step:hover .step-number { transform: scale(1.2) rotate(10deg); box-shadow: 0 0 30px rgba(16,232,107,0.6); }
+.step h3 { color: #fff; margin-bottom: 12px; font-size: 20px; }
+.step p { color: var(--text-dim); line-height: 1.6; }
 
-.showcase img:hover {
-  transform: translateY(-10px) scale(1.05);
+
+.download-block { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.kv { display: grid; gap: 12px; margin-bottom: 24px; }
+.kv div { display: flex; justify-content: space-between; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.kv div span:first-child { color: var(--text-dim); }
+.kv div span:last-child { font-weight: 600; color: #fff; }
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; color: var(--green) !important; }
+
+
+.lang-switcher { position: fixed; top: 24px; right: 24px; display: flex; gap: 12px; z-index: 100; background: var(--glass-bg); backdrop-filter: blur(10px); padding: 8px; border-radius: 99px; border: 1px solid var(--glass-border); box-shadow: var(--glass-shadow); }
+.lang-switcher button { background: transparent; border: none; cursor: pointer; transition: transform 0.3s; padding: 0; display: flex; }
+.lang-switcher button:hover { transform: scale(1.2) translateY(-2px); }
+.lang-switcher svg { border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+
+
+footer { margin-top: 80px; background: rgba(5, 5, 8, 0.7); backdrop-filter: blur(20px); border-top: 1px solid var(--glass-border); padding: 60px 20px 30px; }
+.footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+.foot-col h4 { margin: 0 0 16px; color: #fff; font-size: 18px; }
+.foot-col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.foot-col ul a { color: var(--text-dim); }
+.foot-col ul a:hover { color: var(--green); padding-left: 4px; }
+.copy { max-width: 1200px; margin: 0 auto; color: var(--text-dim); font-size: 14px; text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); }
+
+
+.fade-in, .slide-in-left, .slide-in-right, .scale-in { opacity: 0; transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1); }
+.fade-in { transform: translateY(40px); }
+.slide-in-left { transform: translateX(-60px); }
+.slide-in-right { transform: translateX(60px); }
+.scale-in { transform: scale(0.9); }
+.fade-in.visible, .slide-in-left.visible, .slide-in-right.visible, .scale-in.visible { opacity: 1; transform: translate(0) scale(1); }
+
+.stagger-animation > * { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1); }
+.stagger-animation.visible > * { opacity: 1; transform: translateY(0); }
+.stagger-animation.visible > *:nth-child(1) { transition-delay: 0.1s; }
+.stagger-animation.visible > *:nth-child(2) { transition-delay: 0.2s; }
+.stagger-animation.visible > *:nth-child(3) { transition-delay: 0.3s; }
+.stagger-animation.visible > *:nth-child(4) { transition-delay: 0.4s; }
+.stagger-animation.visible > *:nth-child(5) { transition-delay: 0.5s; }
+.stagger-animation.visible > *:nth-child(6) { transition-delay: 0.6s; }
+
+@media (max-width: 980px) {
+  .grid, .opinions, .download-block, .showcase, .footer-inner { grid-template-columns: 1fr; }
+  .links { display: none; }
+  .title { font-size: 48px; }
 }
-
-    .showcase img {
-      width: 100%;
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      box-shadow: 0 0 40px rgba(35,255,107,0.25);
-    }
-
-    .list {
-      display: grid; gap: 10px;
-    }
-.list li {
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-}
-
-.list li:hover {
-  transform: translateX(6px) scale(1.02);
-  box-shadow: 0 0 14px rgba(35,255,107,0.35);
-  border-color: rgba(35,255,107,0.6);
-  background: rgba(0,50,0,0.55);
-}
-
-.list li .tick {
-  transition: transform 0.25s ease, color 0.25s ease;
-}
-
-.list li:hover .tick {
-  transform: rotate(-10deg) scale(1.2);
-  color: #23ff6b;
-}
-
-    .list li {
-      display: flex; gap: 10px; align-items: center;
-      padding: 10px 12px; border: 1px solid var(--border);
-      border-radius: 12px; background: rgba(0,0,0,0.35);
-      color: var(--text-dim);
-    }
-    .tick { color: var(--green); font-weight: 900; }
-
-   
-    .opinions {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-.opinions .op {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.opinions .op:hover {
-  transform: translateY(-6px) rotate(-1deg) scale(1.02);
-  box-shadow: 0 0 24px rgba(35,255,107,0.35);
-  border-color: rgba(35,255,107,0.6);
-}
-
-    .op {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 14px;
-      box-shadow: var(--shadow-green);
-      font-size: 14px;
-      line-height: 1.55;
-    }
-    .op strong { color: var(--green-soft); }
-
-   
-    .download-block {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-    .dl-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 18px;
-      box-shadow: var(--shadow-green);
-    }
-    .kv { display: grid; gap: 8px; }
-    .kv div { display: flex; justify-content: space-between; }
-    .mono {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      color: var(--green);
-    }
-
-    
-    footer {
-      border-top: 1px solid var(--border);
-      margin-top: 40px;
-      background: linear-gradient(to right, rgba(0,0,0,0.85), rgba(10,74,10,0.85));
-    }
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 28px 20px;
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 18px;
-    }
-    .foot-col h4 { margin: 0 0 8px; color: var(--green-soft); }
-    .foot-col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
-    .copy {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 16px 20px 30px;
-      color: var(--text-dim);
-      font-size: 13px;
-      text-align: center;
-    }
-
-    
-    @media (max-width: 980px) {
-      .grid { grid-template-columns: 1fr; }
-      .opinions { grid-template-columns: 1fr; }
-      .download-block { grid-template-columns: 1fr; }
-      .showcase { grid-template-columns: 1fr; }
-      .footer-inner { grid-template-columns: 1fr; }
-      .links { display: none; }
-    }
-@keyframes scrollLoop {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-
-.fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.slide-in-left {
-  opacity: 0;
-  transform: translateX(-50px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.slide-in-left.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.slide-in-right {
-  opacity: 0;
-  transform: translateX(50px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.slide-in-right.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.scale-in {
-  opacity: 0;
-  transform: scale(0.8);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.scale-in.visible {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.stagger-animation > * {
-  opacity: 0;
-  transform: translateY(15px);
-  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
-}
-
-.stagger-animation.visible > * {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.stagger-animation.visible > *:nth-child(1) { transition-delay: 0.05s; }
-.stagger-animation.visible > *:nth-child(2) { transition-delay: 0.1s; }
-.stagger-animation.visible > *:nth-child(3) { transition-delay: 0.15s; }
-.stagger-animation.visible > *:nth-child(4) { transition-delay: 0.2s; }
-.stagger-animation.visible > *:nth-child(5) { transition-delay: 0.25s; }
-.stagger-animation.visible > *:nth-child(6) { transition-delay: 0.3s; }
-
-  </style>
+</style>
 </head>
 <body>
+
+<div class="liquid-bg">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+</div>
+
 
 
 
@@ -514,11 +313,11 @@
       <span style="opacity:.7">•</span>
       <span id="latest-version">Version: loading…</span>
       <span style="opacity:.7">•</span>
-      <span>1k+ downloads</span>
+      <span>3.5k+ downloads</span>
     </div>
     <h1 class="title">The best Minecraft cheating solution</h1>
     <p class="subtitle">
-      Free and open-source vibe, clean visuals, frequent updates, powerful bypasses. Built to dominate Minecraft 1.21–1.21.1 on Windows, macOS and Linux.
+      Premium vibe, clean visuals, frequent updates, powerful bypasses. Built to dominate Minecraft 1.21.4 on Windows and Linux.
     </p>
     <div class="hero-actions">
       <a class="btn primary" href="#download">Download now →</a>
@@ -534,35 +333,35 @@
     <div class="trusted-item"><span class="dot"></span><img src="https://i.imgur.com/wRFRtsR.png" alt="Vulcan" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://media.forgecdn.net/avatars/258/234/637207573612900511.png" alt="Noname" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://cdn.builtbybit.com/avatars/h/234/234995.jpg?1664995067" alt="Polar" class="bypass-logo"></div>
-    <div class="trusted-item"><span class="dot"></span><img src="https://app-beta.intave.ac/assets/intave_logo.png" alt="Intave" class="bypass-logo"></div>
+    
     <div class="trusted-item"><span class="dot"></span><img src="https://i.imgur.com/GyOGwgD.png" alt="Matrix" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://avatars.githubusercontent.com/u/63469405?s=200&v=4" alt="NCP" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://pbs.twimg.com/profile_images/1076979956654182400/yzYDhCr4_400x400.jpg" alt="Verus" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://media.forgecdn.net/avatars/797/678/638158965365230959.png" alt="GrimAC" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://i.imgur.com/wRFRtsR.png" alt="Vulcan" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://cdn.builtbybit.com/avatars/h/234/234995.jpg?1664995067" alt="Polar" class="bypass-logo"></div>
-    <div class="trusted-item"><span class="dot"></span><img src="https://app-beta.intave.ac/assets/intave_logo.png" alt="Intave" class="bypass-logo"></div>
+    
     <div class="trusted-item"><span class="dot"></span><img src="https://i.imgur.com/GyOGwgD.png" alt="Matrix" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://avatars.githubusercontent.com/u/63469405?s=200&v=4" alt="NCP" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://pbs.twimg.com/profile_images/1076979956654182400/yzYDhCr4_400x400.jpg" alt="Verus" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://media.forgecdn.net/avatars/797/678/638158965365230959.png" alt="GrimAC" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://i.imgur.com/wRFRtsR.png" alt="Vulcan" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://cdn.builtbybit.com/avatars/h/234/234995.jpg?1664995067" alt="Polar" class="bypass-logo"></div>
-    <div class="trusted-item"><span class="dot"></span><img src="https://app-beta.intave.ac/assets/intave_logo.png" alt="Intave" class="bypass-logo"></div>
+    
     <div class="trusted-item"><span class="dot"></span><img src="https://i.imgur.com/GyOGwgD.png" alt="Matrix" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://avatars.githubusercontent.com/u/63469405?s=200&v=4" alt="NCP" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://pbs.twimg.com/profile_images/1076979956654182400/yzYDhCr4_400x400.jpg" alt="Verus" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://media.forgecdn.net/avatars/797/678/638158965365230959.png" alt="GrimAC" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://i.imgur.com/wRFRtsR.png" alt="Vulcan" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://cdn.builtbybit.com/avatars/h/234/234995.jpg?1664995067" alt="Polar" class="bypass-logo"></div>
-    <div class="trusted-item"><span class="dot"></span><img src="https://app-beta.intave.ac/assets/intave_logo.png" alt="Intave" class="bypass-logo"></div>
+    
     <div class="trusted-item"><span class="dot"></span><img src="https://i.imgur.com/GyOGwgD.png" alt="Matrix" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://avatars.githubusercontent.com/u/63469405?s=200&v=4" alt="NCP" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://pbs.twimg.com/profile_images/1076979956654182400/yzYDhCr4_400x400.jpg" alt="Verus" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://media.forgecdn.net/avatars/797/678/638158965365230959.png" alt="GrimAC" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://i.imgur.com/wRFRtsR.png" alt="Vulcan" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://cdn.builtbybit.com/avatars/h/234/234995.jpg?1664995067" alt="Polar" class="bypass-logo"></div>
-    <div class="trusted-item"><span class="dot"></span><img src="https://app-beta.intave.ac/assets/intave_logo.png" alt="Intave" class="bypass-logo"></div>
+    
     <div class="trusted-item"><span class="dot"></span><img src="https://i.imgur.com/GyOGwgD.png" alt="Matrix" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://media.forgecdn.net/avatars/258/234/637207573612900511.png" alt="Noname" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://avatars.githubusercontent.com/u/63469405?s=200&v=4" alt="NCP" class="bypass-logo"></div>
@@ -570,21 +369,21 @@
     <div class="trusted-item"><span class="dot"></span><img src="https://media.forgecdn.net/avatars/797/678/638158965365230959.png" alt="GrimAC" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://i.imgur.com/wRFRtsR.png" alt="Vulcan" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://cdn.builtbybit.com/avatars/h/234/234995.jpg?1664995067" alt="Polar" class="bypass-logo"></div>
-    <div class="trusted-item"><span class="dot"></span><img src="https://app-beta.intave.ac/assets/intave_logo.png" alt="Intave" class="bypass-logo"></div>
+    
     <div class="trusted-item"><span class="dot"></span><img src="https://i.imgur.com/GyOGwgD.png" alt="Matrix" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://avatars.githubusercontent.com/u/63469405?s=200&v=4" alt="NCP" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://pbs.twimg.com/profile_images/1076979956654182400/yzYDhCr4_400x400.jpg" alt="Verus" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://media.forgecdn.net/avatars/797/678/638158965365230959.png" alt="GrimAC" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://i.imgur.com/wRFRtsR.png" alt="Vulcan" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://cdn.builtbybit.com/avatars/h/234/234995.jpg?1664995067" alt="Polar" class="bypass-logo"></div>
-    <div class="trusted-item"><span class="dot"></span><img src="https://app-beta.intave.ac/assets/intave_logo.png" alt="Intave" class="bypass-logo"></div>
+    
     <div class="trusted-item"><span class="dot"></span><img src="https://i.imgur.com/GyOGwgD.png" alt="Matrix" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://avatars.githubusercontent.com/u/63469405?s=200&v=4" alt="NCP" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://pbs.twimg.com/profile_images/1076979956654182400/yzYDhCr4_400x400.jpg" alt="Verus" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://media.forgecdn.net/avatars/797/678/638158965365230959.png" alt="GrimAC" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://i.imgur.com/wRFRtsR.png" alt="Vulcan" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://cdn.builtbybit.com/avatars/h/234/234995.jpg?1664995067" alt="Polar" class="bypass-logo"></div>
-    <div class="trusted-item"><span class="dot"></span><img src="https://app-beta.intave.ac/assets/intave_logo.png" alt="Intave" class="bypass-logo"></div>
+    
     <div class="trusted-item"><span class="dot"></span><img src="https://i.imgur.com/GyOGwgD.png" alt="Matrix" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://media.forgecdn.net/avatars/258/234/637207573612900511.png" alt="Noname" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://avatars.githubusercontent.com/u/63469405?s=200&v=4" alt="NCP" class="bypass-logo"></div>
@@ -593,14 +392,14 @@
     <div class="trusted-item"><span class="dot"></span><img src="https://media.forgecdn.net/avatars/797/678/638158965365230959.png" alt="GrimAC" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://i.imgur.com/wRFRtsR.png" alt="Vulcan" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://cdn.builtbybit.com/avatars/h/234/234995.jpg?1664995067" alt="Polar" class="bypass-logo"></div>
-    <div class="trusted-item"><span class="dot"></span><img src="https://app-beta.intave.ac/assets/intave_logo.png" alt="Intave" class="bypass-logo"></div>
+    
     <div class="trusted-item"><span class="dot"></span><img src="https://i.imgur.com/GyOGwgD.png" alt="Matrix" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://avatars.githubusercontent.com/u/63469405?s=200&v=4" alt="NCP" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://pbs.twimg.com/profile_images/1076979956654182400/yzYDhCr4_400x400.jpg" alt="Verus" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://media.forgecdn.net/avatars/797/678/638158965365230959.png" alt="GrimAC" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://i.imgur.com/wRFRtsR.png" alt="Vulcan" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://cdn.builtbybit.com/avatars/h/234/234995.jpg?1664995067" alt="Polar" class="bypass-logo"></div>
-    <div class="trusted-item"><span class="dot"></span><img src="https://app-beta.intave.ac/assets/intave_logo.png" alt="Intave" class="bypass-logo"></div>
+    
     <div class="trusted-item"><span class="dot"></span><img src="https://i.imgur.com/GyOGwgD.png" alt="Matrix" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://media.forgecdn.net/avatars/258/234/637207573612900511.png" alt="Noname" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://avatars.githubusercontent.com/u/63469405?s=200&v=4" alt="NCP" class="bypass-logo"></div>
@@ -608,14 +407,14 @@
     <div class="trusted-item"><span class="dot"></span><img src="https://media.forgecdn.net/avatars/797/678/638158965365230959.png" alt="GrimAC" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://i.imgur.com/wRFRtsR.png" alt="Vulcan" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://cdn.builtbybit.com/avatars/h/234/234995.jpg?1664995067" alt="Polar" class="bypass-logo"></div>
-    <div class="trusted-item"><span class="dot"></span><img src="https://app-beta.intave.ac/assets/intave_logo.png" alt="Intave" class="bypass-logo"></div>
+    
     <div class="trusted-item"><span class="dot"></span><img src="https://i.imgur.com/GyOGwgD.png" alt="Matrix" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://avatars.githubusercontent.com/u/63469405?s=200&v=4" alt="NCP" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://pbs.twimg.com/profile_images/1076979956654182400/yzYDhCr4_400x400.jpg" alt="Verus" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://media.forgecdn.net/avatars/797/678/638158965365230959.png" alt="GrimAC" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://i.imgur.com/wRFRtsR.png" alt="Vulcan" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://cdn.builtbybit.com/avatars/h/234/234995.jpg?1664995067" alt="Polar" class="bypass-logo"></div>
-    <div class="trusted-item"><span class="dot"></span><img src="https://app-beta.intave.ac/assets/intave_logo.png" alt="Intave" class="bypass-logo"></div>
+    
     <div class="trusted-item"><span class="dot"></span><img src="https://i.imgur.com/GyOGwgD.png" alt="Matrix" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://media.forgecdn.net/avatars/258/234/637207573612900511.png" alt="Noname" class="bypass-logo"></div>
     <div class="trusted-item"><span class="dot"></span><img src="https://avatars.githubusercontent.com/u/63469405?s=200&v=4" alt="NCP" class="bypass-logo"></div>
@@ -633,54 +432,7 @@
   <section id="features" class="section">
     <h2 class="fade-in">Feature highlights</h2>
     <div class="grid stagger-animation">
-      <div class="card">
-        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
-</svg>
-</div>
-        <h3>Clean visuals</h3>
-        <p>Sleek, minimal and readable UI inspired by premium clients. Everything optimized for speed and clarity.</p>
-      </div>
-      <div class="card">
-        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
-</svg>
-</div>
-        <h3>Bypasses</h3>
-        <p>Tailored modules tuned to bypass GrimAC, Vulcan, Polar, Intave, Matrix, NCP and Verus on modern servers.</p>
-      </div>
-      <div class="card">
-        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
-</svg>
-</div>
-        <h3>Frequent updates</h3>
-        <p>Active maintenance. New modules, fixes and improvements rolling out regularly to keep you ahead.</p>
-      </div>
-      <div class="card">
-        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a.64.64 0 0 1-.657.643 48.39 48.39 0 0 1-4.163-.3c.186 1.613.293 3.25.315 4.907a.656.656 0 0 1-.658.663v0c-.355 0-.676-.186-.959-.401a1.647 1.647 0 0 0-1.003-.349c-1.036 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401v0c.31 0 .555.26.532.57a48.039 48.039 0 0 1-.642 5.056c1.518.19 3.058.309 4.616.354a.64.64 0 0 0 .657-.643v0c0-.355-.186-.676-.401-.959a1.647 1.647 0 0 1-.349-1.003c0-1.035 1.008-1.875 2.25-1.875 1.243 0 2.25.84 2.25 1.875 0 .369-.128.713-.349 1.003-.215.283-.4.604-.4.959v0c0 .333.277.599.61.58a48.1 48.1 0 0 0 5.427-.63 48.05 48.05 0 0 0 .582-4.717.532.532 0 0 0-.533-.57v0c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.035 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.37 0 .713.128 1.003.349.283.215.604.401.96.401v0a.656.656 0 0 0 .658-.663 48.422 48.422 0 0 0-.37-5.36c-1.886.342-3.81.574-5.766.689a.578.578 0 0 1-.61-.58v0Z" />
-</svg>
-</div>
-        <h3>Highly customizable</h3>
-        <p>Intuitive config system and clean theme so you can tweak everything for your playstyle.</p>
-      </div>
-      <div class="card">
-        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
-</svg>
-</div>
-        <h3>Cross-platform</h3>
-        <p>Supports Windows 10/11, macOS and Linux. Works on Minecraft 1.21–1.21.1 in English.</p>
-      </div>
-      <div class="card">
-        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
-</svg>
-</div>
-        <h3>Open project</h3>
-        <p>Transparent development with public repo, license and community channels to collaborate.</p>
-      </div>
+      
     </div>
   </section>
 
@@ -688,13 +440,13 @@
   <section id="showcase" class="section">
     <h2 class="fade-in">Wanna take a look?</h2>
     <div class="showcase">
-      <img src="https://i.imgur.com/m0Y8yJ9.jpeg" alt="Veltragossa Click GUI" class="slide-in-left" />
+      <img src="https://i.imgur.com/rM2Cr0G.png" alt="Veltragossa Click GUI" class="slide-in-left" />
       <ul class="list stagger-animation">
         <li><span class="tick">✔</span> English language, simple onboarding</li>
         <li><span class="tick">✔</span> Bypass tuned for modern ACs</li>
         <li><span class="tick">✔</span> Clean GUI with smart category layout</li>
         <li><span class="tick">✔</span> Configurable visuals and keybinds</li>
-        <li><span class="tick">✔</span> Works great on 1.21–1.21.1</li>
+        <li><span class="tick">✔</span> Works great on 1.21.4</li>
       </ul>
     </div>
   </section>
@@ -716,10 +468,10 @@
   <h2 class="fade-in">Installation Guide</h2>
   <div class="steps-container stagger-animation" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:40px;">
     
-    <div class="step" style="background:rgba(0,50,0,0.7);padding:24px;border-radius:12px;box-shadow:0 0 12px #003300;text-align:center;">
+    <div class="step" >
       <div class="step-number">1</div>
-      <h3 style="color:#9cff9c;"> Download Fabric</h3>
-      <p>Get the <a href="https://fabricmc.net/use/installer/" target="_blank" rel="noopener">Fabric installer</a> and set it up for Minecraft <strong>1.21 / 1.21.1</strong>.</p>
+      <h3 > Download Fabric</h3>
+      <p>Get the <a href="https://fabricmc.net/use/installer/" target="_blank" rel="noopener">Fabric installer</a> and set it up for Minecraft <strong>1.21.4</strong>.</p>
     </div>
     <div class="lang-switcher">
   <button data-lang="pl" title="Polski">
@@ -736,33 +488,33 @@
   </button>
 </div>
 
-    <div class="step" style="background:rgba(0,50,0,0.7);padding:24px;border-radius:12px;box-shadow:0 0 12px #003300;text-align:center;">
+    <div class="step" >
       <div class="step-number">2</div>
-      <h3 style="color:#9cff9c;"> Install Fabric API</h3>
+      <h3 > Install Fabric API</h3>
       <p>Download the <a href="https://www.curseforge.com/minecraft/mc-mods/fabric-api/download/5605482" target="_blank" rel="noopener">Fabric API</a> and keep it ready to place in your mods folder.</p>
     </div>
     
-    <div class="step" style="background:rgba(0,50,0,0.7);padding:24px;border-radius:12px;box-shadow:0 0 12px #003300;text-align:center;">
+    <div class="step" >
       <div class="step-number">3</div>
-      <h3 style="color:#9cff9c;"> Prepare Mods Folder</h3>
-      <p>Navigate to <code>%appdata%/.minecraft/mods</code> (Windows) or the equivalent mods folder on Linux/macOS.</p>
+      <h3 > Prepare Mods Folder</h3>
+      <p>Navigate to <code>%appdata%/.minecraft/mods</code> (Windows) or the equivalent mods folder on Linux.</p>
     </div>
     
-    <div class="step" style="background:rgba(0,50,0,0.7);padding:24px;border-radius:12px;box-shadow:0 0 12px #003300;text-align:center;">
+    <div class="step" >
       <div class="step-number">4</div>
-      <h3 style="color:#9cff9c;"> Add Veltragossa & API</h3>
-      <p>Place both <strong>Veltragossa.jar</strong> and <strong>Fabric API</strong> into the mods folder for Minecraft 1.21 / 1.21.1.</p>
+      <h3 > Add Veltragossa & API</h3>
+      <p>Place both <strong>Veltragossa.jar</strong> and <strong>Fabric API</strong> into the mods folder for Minecraft 1.21.4.</p>
     </div>
     
-    <div class="step" style="background:rgba(0,50,0,0.7);padding:24px;border-radius:12px;box-shadow:0 0 12px #003300;text-align:center;">
+    <div class="step" >
       <div class="step-number">5</div>
-      <h3 style="color:#9cff9c;"> Launch Minecraft</h3>
+      <h3 > Launch Minecraft</h3>
       <p>Run Minecraft with Fabric. Veltragossa will load automatically and display the Click GUI.</p>
     </div>
     
-    <div class="step" style="background:rgba(0,50,0,0.7);padding:24px;border-radius:12px;box-shadow:0 0 12px #003300;text-align:center;">
+    <div class="step" >
       <div class="step-number">6</div>
-      <h3 style="color:#9cff9c;"> Configure & Play</h3>
+      <h3 > Configure & Play</h3>
       <p>Default prefix is <strong>@</strong>, the Click GUI opens with <strong>Right Shift</strong>, and sample configs are available under <code>@cfg cloudlist</code>.</p>
     </div>
     
@@ -835,10 +587,10 @@
       <h3 style="margin:0 0 8px">Latest build</h3>
       <div class="kv">
         <div><span>Version</span><span class="mono" id="version-display">loading…</span></div>
-        <div><span>Minecraft</span><span>1.21 – 1.21.1</span></div>
+        <div><span>Minecraft</span><span>1.21.4</span></div>
         <div><span>Language</span><span>English</span></div>
-        <div><span>Systems</span><span>Windows / macOS / Linux</span></div>
-        <div><span>Downloads</span><span>1k+</span></div>
+        <div><span>Systems</span><span>Windows / Linux</span></div>
+        <div><span>Downloads</span><span>3.5k+</span></div>
       </div>
       <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap">
         <a id="download-btn" class="btn primary" href="#" download>Download Veltragossa →</a>
@@ -860,10 +612,10 @@
 const translations = {
   en: {
     title: "The best Minecraft cheating solution",
-    subtitle: "Free and open-source vibe, clean visuals, frequent updates, powerful bypasses. Built to dominate Minecraft 1.21–1.21.1 on Windows, macOS and Linux.",
+    subtitle: "Premium vibe, clean visuals, frequent updates, powerful bypasses. Built to dominate Minecraft 1.21.4 on Windows and Linux.",
     owner: "Owner: Mevinggs , Santa",
     version: "Version",
-    downloads: "1k+ downloads",
+    downloads: "3.5k+ downloads",
     downloadNow: "Download now →",
     sourceCode: "Source code",
     discord: "Discord",
@@ -877,7 +629,7 @@ const translations = {
     highlyCustomizable: "Highly customizable",
     highlyCustomizableDesc: "Intuitive config system and clean theme so you can tweak everything for your playstyle.",
     crossPlatform: "Cross-platform",
-    crossPlatformDesc: "Supports Windows 10/11, macOS and Linux. Works on Minecraft 1.21–1.21.1 in English.",
+    crossPlatformDesc: "Supports Windows 10/11 and Linux. Works on Minecraft 1.21.4 in English.",
     openProject: "Open project",
     openProjectDesc: "Transparent development with public repo, license and community channels to collaborate.",
     showcase: "Wanna take a look?",
@@ -885,17 +637,17 @@ const translations = {
     bypassTuned: "Bypass tuned for modern ACs",
     cleanGui: "Clean GUI with smart category layout",
     configurableVisuals: "Configurable visuals and keybinds",
-    worksGreat: "Works great on 1.21–1.21.1",
+    worksGreat: "Works great on 1.21.4",
     opinions: "User opinions",
     tutorial: "Installation Guide",
     downloadFabric: "Download Fabric",
-    downloadFabricDesc: 'Get the <a href="https://fabricmc.net/use/installer/" target="_blank" rel="noopener">Fabric installer</a> and set it up for Minecraft <strong>1.21 / 1.21.1</strong>.',
+    downloadFabricDesc: 'Get the <a href="https://fabricmc.net/use/installer/" target="_blank" rel="noopener">Fabric installer</a> and set it up for Minecraft <strong>1.21.4</strong>.',
     installFabricApi: "Install Fabric API",
     installFabricApiDesc: 'Download the <a href="https://www.curseforge.com/minecraft/mc-mods/fabric-api/download/5605482" target="_blank" rel="noopener">Fabric API</a> and keep it ready to place in your mods folder.',
     prepareModsFolder: "Prepare Mods Folder",
-    prepareModsFolderDesc: "Navigate to <code>%appdata%/.minecraft/mods</code> (Windows) or the equivalent mods folder on Linux/macOS.",
+    prepareModsFolderDesc: "Navigate to <code>%appdata%/.minecraft/mods</code> (Windows) or the equivalent mods folder on Linux.",
     addVeltragossa: "Add Veltragossa & API",
-    addVeltragossaDesc: "Place both <strong>Veltragossa.jar</strong> and <strong>Fabric API</strong> into the mods folder for Minecraft 1.21 / 1.21.1.",
+    addVeltragossaDesc: "Place both <strong>Veltragossa.jar</strong> and <strong>Fabric API</strong> into the mods folder for Minecraft 1.21.4.",
     launchMinecraft: "Launch Minecraft",
     launchMinecraftDesc: "Run Minecraft with Fabric. Veltragossa will load automatically and display the Click GUI.",
     configurePlay: "Configure & Play",
@@ -919,14 +671,14 @@ const translations = {
     community: "Community",
     faq: "FAQ",
     footerDesc: "© Veltragossa — Mevinggs. Unbeatable cheating solution: clean visuals, active dev, powerful bypasses.",
-    footerCopy: "Built with love and green gradients. Stay undetectable."
+    footerCopy: "Veltragossa 2026!"
   },
   pl: {
     title: "Najlepsze rozwiązanie do cheatowania w Minecraft",
-    subtitle: "Darmowy i otwarty projekt, czyste wizualnie, częste aktualizacje, mocne bypassy. Zbudowany, by dominować w Minecraft 1.21-1.21.1 na Windows, macOS i Linux.",
+    subtitle: "Projekt premium, czyste wizualnie, częste aktualizacje, mocne bypassy. Zbudowany, by dominować w Minecraft 1.21.4 na Windows i Linux.",
     owner: "Właściciel: Mevinggs , Santa",
     version: "Wersja",
-    downloads: "1k+ pobrań",
+    downloads: "Ponad 3.5K pobrań",
     downloadNow: "Pobierz teraz →",
     sourceCode: "Kod źródłowy",
     discord: "Discord",
@@ -940,7 +692,7 @@ const translations = {
     highlyCustomizable: "Wysoko konfigurowalny",
     highlyCustomizableDesc: "Intuicyjny system konfiguracji i czysty motyw, dzięki czemu możesz dostosować wszystko do swojego stylu gry.",
     crossPlatform: "Wieloplatformowy",
-    crossPlatformDesc: "Wspiera Windows 10/11, macOS i Linux. Działa na Minecraft 1.21-1.21.1 w języku angielskim.",
+    crossPlatformDesc: "Wspiera Windows 10/11 i Linux. Działa na Minecraft 1.21.4 w języku angielskim.",
     openProject: "Otwarty projekt",
     openProjectDesc: "Przejrzysty rozwój z publicznym repozytorium, licencją i kanałami społeczności do współpracy.",
     showcase: "Chcesz zobaczyć?",
@@ -948,17 +700,17 @@ const translations = {
     bypassTuned: "Bypass dostosowany do nowoczesnych AC",
     cleanGui: "Czysty GUI z inteligentnym układem kategorii",
     configurableVisuals: "Konfigurowalne wizualizacje i skróty klawiszowe",
-    worksGreat: "Świetnie działa na 1.21-1.21.1",
+    worksGreat: "Świetnie działa na 1.21.4",
     opinions: "Opinie użytkowników",
     tutorial: "Instrukcja instalacji",
     downloadFabric: "Pobierz Fabric",
-    downloadFabricDesc: 'Pobierz <a href="https://fabricmc.net/use/installer/" target="_blank" rel="noopener">instalator Fabric</a> i skonfiguruj go dla Minecrafta <strong>1.21 / 1.21.1</strong>.',
+    downloadFabricDesc: 'Pobierz <a href="https://fabricmc.net/use/installer/" target="_blank" rel="noopener">instalator Fabric</a> i skonfiguruj go dla Minecrafta <strong>1.21.4</strong>.',
     installFabricApi: "Zainstaluj Fabric API",
     installFabricApiDesc: 'Pobierz <a href="https://www.curseforge.com/minecraft/mc-mods/fabric-api/download/5605482" target="_blank" rel="noopener">Fabric API</a> i przygotuj go do umieszczenia w folderze mods.',
     prepareModsFolder: "Przygotuj folder Mods",
-    prepareModsFolderDesc: "Przejdź do <code>%appdata%/.minecraft/mods</code> (Windows) lub równoważnego folderu mods na Linux/macOS.",
+    prepareModsFolderDesc: "Przejdź do <code>%appdata%/.minecraft/mods</code> (Windows) lub równoważnego folderu mods na Linux.",
     addVeltragossa: "Dodaj Veltragossa & API",
-    addVeltragossaDesc: "Umieść zarówno <strong>Veltragossa.jar</strong> jak i <strong>Fabric API</strong> w folderze mods dla Minecraft 1.21 / 1.21.1.",
+    addVeltragossaDesc: "Umieść zarówno <strong>Veltragossa.jar</strong> jak i <strong>Fabric API</strong> w folderze mods dla Minecraft 1.21.4.",
     launchMinecraft: "Uruchom Minecraft",
     launchMinecraftDesc: "Uruchom Minecraft z Fabric. Veltragossa załaduje się automatycznie i wyświetli Click GUI.",
     configurePlay: "Konfiguruj & Graj",
@@ -982,14 +734,14 @@ const translations = {
     community: "Społeczność",
     faq: "FAQ",
     footerDesc: "© Veltragossa — Mevinggs. Niezrównane rozwiązanie do cheatowania: czyste wizualnie, aktywny dev, mocne bypassy.",
-    footerCopy: "Zbudowane z miłością i zielonymi gradientami. Pozostań niewykrywalny."
+    footerCopy: "Veltragossa 2026!."
   },
   ru: {
     title: "Лучшее решение для читов в Minecraft",
-    subtitle: "Бесплатный и открытый проект, чистый интерфейс, частые обновления, мощные обходы. Создан для доминирования в Minecraft 1.21-1.21.1 на Windows, macOS и Linux.",
+    subtitle: "Премиум проект, чистый интерфейс, частые обновления, мощные обходы. Создан для доминирования в Minecraft 1.21.4 на Windows и Linux.",
     owner: "Владелец: Mevinggs , Santa",
     version: "Версия",
-    downloads: "1k+ загрузок",
+    downloads: "Более 3.5K загрузок",
     downloadNow: "Скачать сейчас →",
     sourceCode: "Исходный код",
     discord: "Discord",
@@ -1003,7 +755,7 @@ const translations = {
     highlyCustomizable: "Высокая настраиваемость",
     highlyCustomizableDesc: "Интуитивная система конфигурации и чистая тема, чтобы вы могли настроить всё под свой стиль игры.",
     crossPlatform: "Кроссплатформенный",
-    crossPlatformDesc: "Поддерживает Windows 10/11, macOS и Linux. Работает на Minecraft 1.21-1.21.1 на английском языке.",
+    crossPlatformDesc: "Поддерживает Windows 10/11 и Linux. Работает на Minecraft 1.21.4 на английском языке.",
     openProject: "Открытый проект",
     openProjectDesc: "Прозрачная разработка с публичным репозиторием, лицензией и каналами сообщества для сотрудничества.",
     showcase: "Хотите взглянуть?",
@@ -1011,17 +763,17 @@ const translations = {
     bypassTuned: "Обход настроен для современных AC",
     cleanGui: "Чистый GUI с умной раскладкой категорий",
     configurableVisuals: "Настраиваемая графика и горячие клавиши",
-    worksGreat: "Отлично работает на 1.21-1.21.1",
+    worksGreat: "Отлично работает на 1.21.4",
     opinions: "Отзывы пользователей",
     tutorial: "Руководство по установке",
     downloadFabric: "Скачать Fabric",
-    downloadFabricDesc: 'Получите <a href="https://fabricmc.net/use/installer/" target="_blank" rel="noopener">установщик Fabric</a> и настройте его для Minecraft <strong>1.21 / 1.21.1</strong>.',
+    downloadFabricDesc: 'Получите <a href="https://fabricmc.net/use/installer/" target="_blank" rel="noopener">установщик Fabric</a> и настройте его для Minecraft <strong>1.21.4</strong>.',
     installFabricApi: "Установить Fabric API",
     installFabricApiDesc: 'Скачайте <a href="https://www.curseforge.com/minecraft/mc-mods/fabric-api/download/5605482" target="_blank" rel="noopener">Fabric API</a> и будьте готовы поместить его в папку mods.',
     prepareModsFolder: "Подготовить папку Mods",
-    prepareModsFolderDesc: "Перейдите к <code>%appdata%/.minecraft/mods</code> (Windows) или эквивалентной папке mods на Linux/macOS.",
+    prepareModsFolderDesc: "Перейдите к <code>%appdata%/.minecraft/mods</code> (Windows) или эквивалентной папке mods на Linux.",
     addVeltragossa: "Добавить Veltragossa & API",
-    addVeltragossaDesc: "Поместите как <strong>Veltragossa.jar</strong>, так и <strong>Fabric API</strong> в папку mods для Minecraft 1.21 / 1.21.1.",
+    addVeltragossaDesc: "Поместите как <strong>Veltragossa.jar</strong>, так и <strong>Fabric API</strong> в папку mods для Minecraft 1.21.4.",
     launchMinecraft: "Запустить Minecraft",
     launchMinecraftDesc: "Запустите Minecraft с Fabric. Veltragossa загрузится автоматически и отобразит Click GUI.",
     configurePlay: "Настроить & Играть",
@@ -1045,7 +797,7 @@ const translations = {
     community: "Сообщество",
     faq: "FAQ",
     footerDesc: "© Veltragossa — Mevinggs. Непревзойденное решение для читов: чистый интерфейс, активный разработчик, мощные обходы.",
-    footerCopy: "Создано с любовью и зелеными градиентами. Оставайтесь невидимым."
+    footerCopy: "Veltragossa 2026!."
   }
 };
 
@@ -1080,8 +832,7 @@ function setLanguage(lang) {
     { title: t.bypasses, desc: t.bypassesDesc },
     { title: t.frequentUpdates, desc: t.frequentUpdatesDesc },
     { title: t.highlyCustomizable, desc: t.highlyCustomizableDesc },
-    { title: t.crossPlatform, desc: t.crossPlatformDesc },
-    { title: t.openProject, desc: t.openProjectDesc }
+    { title: t.crossPlatform, desc: t.crossPlatformDesc }
   ];
   
   featureCards.forEach((card, index) => {
@@ -1194,7 +945,7 @@ document.querySelectorAll(".lang-switcher button").forEach(btn => {
   
   const versionUrl = "https://raw.githubusercontent.com/Mevinggs/Veltragossa-client/refs/heads/main/Version%20Beta/Version%20Beta.lua";
 
-  const apiUrl = "https://raw.githubusercontent.com/Mevinggs/aMamaki-Launcher/refs/heads/main/dollandiaistneijerzadchcenasuciszyc.lua";
+  
 
   try {
   
@@ -1363,6 +1114,49 @@ document.addEventListener('DOMContentLoaded', () => {
     step.addEventListener('mouseenter', handleMouseEnter);
     step.addEventListener('mouseleave', handleMouseLeave);
   });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const blobs = document.querySelectorAll('.blob');
+  
+  let targetX = 0;
+  let targetY = 0;
+  let targetScrollY = window.scrollY;
+  
+  let currentX = 0;
+  let currentY = 0;
+  let currentScrollY = window.scrollY;
+  
+  window.addEventListener('mousemove', (e) => {
+    targetX = (e.clientX / window.innerWidth - 0.5) * 2; 
+    targetY = (e.clientY / window.innerHeight - 0.5) * 2; 
+  });
+  
+  window.addEventListener('scroll', () => {
+    targetScrollY = window.scrollY;
+  });
+  
+  function animate() {
+    currentX += (targetX - currentX) * 0.05;
+    currentY += (targetY - currentY) * 0.05;
+    currentScrollY += (targetScrollY - currentScrollY) * 0.1;
+    
+    blobs.forEach((blob, index) => {
+      const factor = (3 - index) * 40; 
+      const scrollFactor = (index + 1) * 0.2;
+      
+      const offsetX = currentX * factor;
+      const offsetY = currentY * factor - (currentScrollY * scrollFactor);
+      
+      blob.style.marginLeft = `${offsetX}px`;
+      blob.style.marginTop = `${offsetY}px`;
+    });
+    
+    requestAnimationFrame(animate);
+  }
+  
+  animate();
 });
 </script>
 </body>
