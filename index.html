@@ -313,7 +313,7 @@ footer { margin-top: 80px; background: rgba(5, 5, 8, 0.7); backdrop-filter: blur
       <span style="opacity:.7">•</span>
       <span id="latest-version">Version: loading…</span>
       <span style="opacity:.7">•</span>
-      <span>3.5k+ downloads</span>
+      <span>3.6k+ downloads</span>
     </div>
     <h1 class="title">The best Minecraft cheating solution</h1>
     <p class="subtitle">
@@ -434,6 +434,13 @@ footer { margin-top: 80px; background: rgba(5, 5, 8, 0.7); backdrop-filter: blur
   
   <section id="showcase" class="section">
     <h2 class="fade-in">Wanna take a look?</h2>
+
+    <div style="width: 100%; max-width: 900px; margin: 0 auto 40px; border-radius: 20px; overflow: hidden; border: 1px solid var(--glass-border); box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 30px rgba(16,232,107,0.2);">
+      <video id="trailer-video" width="100%" height="auto" style="display: block;" muted>
+        <source src="https://i.imgur.com/ReKu2Sp.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
     <div class="showcase">
       <img src="https://i.imgur.com/XIe1UAy.png" alt="Veltragossa Click GUI" class="slide-in-left" />
       <ul class="list stagger-animation">
@@ -1041,6 +1048,24 @@ clickGui.addEventListener('mousemove', e => {
 clickGui.addEventListener('mouseleave', () => {
   clickGui.style.transform = 'translate(0,0) scale(1)';
 });
+</script>
+
+<script>
+const trailerVideo = document.getElementById('trailer-video');
+
+if (trailerVideo) {
+  const videoObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        trailerVideo.play().catch(err => console.log('Autoplay prevented:', err));
+      } else {
+        trailerVideo.pause();
+      }
+    });
+  }, { threshold: 0.3 });
+  
+  videoObserver.observe(trailerVideo);
+}
 </script>
 
 <script>
