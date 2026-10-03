@@ -947,7 +947,7 @@ document.querySelectorAll(".lang-switcher button").forEach(btn => {
 
   const btn = document.getElementById("download-btn");
   if (btn) {
-    btn.href = "https://github.com/Mevinggs/Veltragossa-client/releases/download/0.2.1/Veltragossa.jar";
+    btn.href = "https://github.com/KASTIV/Veltragossa-Client/releases/download/vells/jar.jar";
     btn.setAttribute("download", "");
   }
 })();
@@ -984,28 +984,20 @@ document.querySelectorAll(".lang-switcher button").forEach(btn => {
     <div class="copy">Built with love and green gradients. Stay undetectable.</div>
   </footer>
 
-  <script>
-    
-    (async function fetchVersion() {
-      const url = "https://raw.githubusercontent.com/Mevinggs/Veltragossa-client/refs/heads/main/Version%20Beta/Version%20Beta.lua";
-      const el1 = document.getElementById("latest-version");
-      const el2 = document.getElementById("version-display");
-      try {
-        const res = await fetch(url, { cache: "no-store" });
-        if (!res.ok) throw new Error("HTTP " + res.status);
-        const text = await res.text();
-        
-        const lines = text.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
-        const version = lines[0] || "Unknown";
-        el1.textContent = "Version: " + version;
-        el2.textContent = version;
-      } catch (e) {
-        el1.textContent = "Version: unavailable";
-        el2.textContent = "unavailable";
-        console.warn("Version fetch failed:", e);
-      }
-    })();
-  </script>
+  
+<script>
+  (function setVersion() {
+    const version = "0.5";
+
+    const el1 = document.getElementById("latest-version");
+    const el2 = document.getElementById("version-display");
+
+    if (el1) el1.textContent = "Version: " + version;
+    if (el2) el2.textContent = version;
+  })();
+</script>
+
+
 <script>
 
 const observerOptions = {
