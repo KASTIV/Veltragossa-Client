@@ -929,20 +929,12 @@ document.querySelectorAll(".lang-switcher button").forEach(btn => {
 </script>
 
 <script>
-(async function() {
-  
-  const versionUrl = "https://raw.githubusercontent.com/Mevinggs/Veltragossa-client/refs/heads/main/Version%20Beta/Version%20Beta.lua";
+(function() {
+  const version = "0.5";
 
-  
-
-  try {
-  
-    const resVer = await fetch(versionUrl);
-    const verText = await resVer.text();
-    const verLine = verText.split(/\r?\n/).map(l=>l.trim()).filter(Boolean)[0];
-    document.getElementById("version-display").textContent = verLine || "Unknown";
-  } catch(e) {
-    document.getElementById("version-display").textContent = "Unavailable";
+  const versionDisplay = document.getElementById("version-display");
+  if (versionDisplay) {
+    versionDisplay.textContent = version;
   }
 
   const btn = document.getElementById("download-btn");
